@@ -4,6 +4,15 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\Genius\\bgtest\\bgtest.jks')
+            storePassword 'Ghtybn56'
+            keyAlias 'key0'
+            keyPassword 'Ghtybn56'
+        }
+    }
+
     compileSdk 32
 
     defaultConfig {
@@ -23,6 +32,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

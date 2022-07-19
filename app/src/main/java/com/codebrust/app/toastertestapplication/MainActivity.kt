@@ -3,6 +3,7 @@ package com.codebrust.app.toastertestapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.codebrust.app.toastertestapplication.databinding.ActivityMainBinding
+import com.codebrust.lib.toaster.Toaster
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.testToast.setOnClickListener {
-//            Toaster.toast(this)
+            Toaster.toast(this)
         }
         setContentView(binding.root)
     }
