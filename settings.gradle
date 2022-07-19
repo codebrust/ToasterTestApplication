@@ -1,0 +1,29 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+def props = new Properties()
+file("local.properties").withInputStream { props.load(it) }
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/codebrust/toaster")
+            credentials {
+                username = props.getProperty("grp.user")
+                password = props.getProperty("grp.token")
+            }
+        }
+    }
+}
+rootProject.name = "ToasterTestApplication"
+include ':app'
